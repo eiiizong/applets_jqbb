@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "johnstoncode.svn-scm",
+    "Lokalise.i18n-ally",
+    "antfu.unocss",
+    "lokalise.i18n-ally"
+  ]
+}

@@ -1,0 +1,62 @@
+// 所有标签 盒模型
+.page,
+.view,
+.input,
+.button,
+.camera,
+.audio,
+.navigator,
+.scroll-view,
+.swiper,
+.swiper-item,
+.movable-view,
+.movable-area,
+.cover-image,
+.cover-view,
+.icon,
+.text,
+.rich-text,
+.progress,
+.editor,
+.image,
+.form,
+.label,
+.picker-view,
+.picker,
+.checkbox,
+.radio,
+.slider,
+.switch,
+.video,
+.image,
+.map,
+.live-player,
+.live-pusher,
+.canvas,
+.web-view,
+.open-data,
+.official-account,
+.ad,
+.textarea {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  &::after,
+  &::before {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+  }
+}

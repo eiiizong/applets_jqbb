@@ -1,0 +1,80 @@
+// 所有页面公用样式
+@use 'sass:math';
+.form {
+  $h: 88rpx;
+  $font-size: 28rpx;
+  .form {
+    &-item {
+      display: flex;
+      align-items: center;
+      height: $h;
+      font-size: $font-size;
+      border-bottom: 1px solid rgba(#c8c7cc, 0.4);
+      &-label {
+        font-size: inherit;
+      }
+      &-input-wrapper {
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+        padding-left: 30rpx;
+        box-sizing: border-box;
+      }
+      &-input {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        font-size: $font-size;
+        line-height: $h;
+        padding: 12rpx;
+        text-align: right;
+        box-sizing: border-box;
+      }
+      &-picker {
+        width: 100%;
+        border: 0;
+        position: relative;
+
+        &-value,
+        &-placeholder {
+          width: 100%;
+          height: $h;
+          line-height: 40rpx;
+          text-align: right;
+          font-size: $font-size;
+          padding: math.div($h - 40rpx, 2);
+          padding-right: 30rpx;
+          box-sizing: border-box;
+        }
+        &-value {
+          color: #3d424d;
+        }
+        &-placeholder {
+          color: #888;
+        }
+        &-icon {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          color: #aaa;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  .button-query {
+    width: 100%;
+    height: 72rpx;
+    line-height: 72rpx;
+    font-size: 28rpx;
+    color: #fff;
+    text-align: center;
+    background-color: #3882ff;
+    border-radius: 8rpx;
+    margin-top: 30rpx;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  // vscode默认启用了根据文件类型自动设置tabsize的选项
+  "editor.detectIndentation": false,
+  // 重新设定tabsize
+  "editor.tabSize": 2,
+  // 每次保存的时候自动格式化
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // 把prettier设置为vscode默认的代码格式化工具
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.foldingStrategy": "indentation",
+  // vue文件的默认格式化工具选择prettier
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "i18n-ally.localesPaths": ["src/locale"],
+  "i18n-ally.enabledParsers": ["json"],
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.displayLanguage": "zh-Hans",
+  "i18n-ally.keystyle": "nested",
+  "unocss.autocomplete.matchType": "prefix"
+}
