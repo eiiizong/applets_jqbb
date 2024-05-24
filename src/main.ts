@@ -13,7 +13,6 @@ import { setupStore } from '@/stores'
 import { useStoreUserSettings } from '@/stores/modules'
 import messages from '@/locale'
 import { useUpdateSystemLanguageDisplay } from '@/hooks'
-import mixinUpdate from '@/mixin'
 import { setLocale } from '@/utils/uni'
 
 /**
@@ -47,7 +46,6 @@ export function createApp() {
   setupStore(app)
   // 使用国际化
   app.use(createLocalI18n())
-  app.mixin(mixinUpdate)
   return {
     app
   }

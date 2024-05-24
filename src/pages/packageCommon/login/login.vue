@@ -1,7 +1,6 @@
 <template>
   <div class="login page">
     <div class="login-con">
-      <LoginHeader></LoginHeader>
       <LoginForm @click="onClickLogin"></LoginForm>
     </div>
   </div>
@@ -9,7 +8,6 @@
 <script setup lang="ts">
   import type { LoginPageForm } from '@/types'
 
-  import LoginHeader from './part/LoginHeader.vue'
   import LoginForm from './part/LoginForm.vue'
 
   import { navigateBack, redirectTo } from '@/utils/uni'

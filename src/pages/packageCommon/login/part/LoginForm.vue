@@ -1,44 +1,5 @@
 <template>
   <div class="login-form">
-    <div class="form-wrapper">
-      <div class="form-item">
-        <label class="label" for="name">{{ $t('login.form.name.label') }}</label>
-        <div class="input-wrapper">
-          <input
-            class="input"
-            v-model="form.name"
-            id="name"
-            type="text"
-            :placeholder="$t('login.form.name.placeholder')"
-          />
-        </div>
-      </div>
-      <div class="form-item">
-        <label class="label" for="idcard">{{ $t('login.form.idcard.label') }}</label>
-        <div class="input-wrapper">
-          <input
-            class="input"
-            maxlength="18"
-            v-model="form.idcard"
-            id="idcard"
-            type="idcard"
-            :placeholder="$t('login.form.idcard.placeholder')"
-            @blur="onBlurCheckIdCard"
-          />
-        </div>
-      </div>
-      <!-- #ifdef MP-WEIXIN -->
-      <!-- <div class="form-item">
-        <div class="label">{{ $t('login.form.tel.label') }}</div>
-        <div class="input-wrapper">
-          <input v-model="form.tel" disabled class="input" type="tel" :placeholder="$t('login.form.tel.placeholder')" />
-          <button class="button" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">
-            {{ $t('login.form.tel.button') }}
-          </button>
-        </div>
-      </div> -->
-      <!-- #endif -->
-    </div>
     <div class="agreement-wrapper">
       <label for="agree" class="label">
         <checkbox-group @change="onChangeCheckbox">
@@ -66,7 +27,7 @@
     </div>
     <div class="button-wrapper">
       <button class="button" :disabled="!isCanClickLogin" open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
-        {{ $t('login.button') }}
+        微信一键登录
       </button>
     </div>
   </div>
@@ -74,7 +35,7 @@
 
 <script setup lang="ts">
   import type { LoginPageForm } from '@/types'
-  import { navigateTo, showModal } from '@/utils/uni'
+  import { navigateTo } from '@/utils/uni'
   import { checkIDCard } from '@/utils/check'
 
   const emit = defineEmits(['click'])
@@ -160,20 +121,6 @@
       form.value.avatar = imgBase64
     }
     emit('click', form.value)
-  }
-
-  /**
-   * 失去焦点校验身份证号
-   */
-  const onBlurCheckIdCard = (event: any) => {
-    const { value } = event.detail
-
-    if (value) {
-      const res = checkIDCard(value)
-      if (!res.isOk) {
-        showModal(res.errMsg)
-      }
-    }
   }
 </script>
 

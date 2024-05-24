@@ -1,20 +1,11 @@
 <template>
-  <div class="page-scroll home">
-    <HomeHeader></HomeHeader>
-    <PopularServices></PopularServices>
-    <Policy></Policy>
-  </div>
+  <div class="page-scroll home">12</div>
 </template>
 
-<script setup lang="ts">
-  import HomeHeader from './part/HomeHeader.vue'
-  import PopularServices from './part/PopularServices.vue'
-  import Policy from './part/Policy.vue'
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
   .home {
     width: 100%;
-    padding-bottom: $spacing;
   }
 </style>
