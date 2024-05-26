@@ -12,41 +12,34 @@
       />
     </div>
 
-    <scroll-view
-      class="scroll-view"
-      scroll-x
-      :scroll-into-view="scrollViewId"
-      scroll-with-animation
-      v-if="renderList.length"
-    >
+    <div class="tabs">
       <div
-        class="item"
-        :class="item.chi037 === scrollViewId ? 'checked' : ''"
-        v-for="item in renderList"
-        :id="item.chi037"
-        :key="item.chi037"
-        @click="emit('click', item.chi037)"
+        class="tab"
+        v-for="item in tabs"
+        :key="item.key"
+        :class="[item.key === value ? 'checked' : '']"
+        @click="onClick(item.key)"
       >
-        <div class="text">{{ item.chi037Desc }}</div>
+        <div class="text">{{ item.label }}</div>
       </div>
-    </scroll-view>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
   import type { PropType } from 'vue'
 
-  const emit = defineEmits(['query', 'click'])
+  const emit = defineEmits(['query', 'update:value'])
 
   const props = defineProps({
     /**
      * 渲染数据
      */
-    renderList: {
+    tabs: {
       type: Array as PropType<
         {
-          chi037: string
-          chi037Desc: string
+          key: string
+          label: string
         }[]
       >,
       required: true
@@ -54,7 +47,7 @@
     /**
      * 当前滚动到顶部的id
      */
-    scrollViewId: {
+    value: {
       type: String,
       required: true
     }
@@ -70,6 +63,12 @@
    */
   const onSearch = () => {
     emit('query', keyword.value)
+  }
+
+  const onClick = (key: string) => {
+    if (props.value !== key) {
+      emit('update:value', key)
+    }
   }
 </script>
 
@@ -98,14 +97,15 @@
       }
     }
 
-    .scroll-view {
+    .tabs {
       width: 100%;
       height: $scroll-view-height;
       white-space: nowrap;
       overflow: hidden;
       background-color: #fff;
       border-bottom: 1px solid $color-border;
-      .item {
+      .tab {
+        width: 33.33%;
         display: inline-block;
         padding-left: $spacing;
         box-sizing: border-box;
@@ -115,6 +115,7 @@
           color: $color-text;
           position: relative;
           transition: all 0.3s;
+          text-align: center;
           &::before {
             content: '';
             width: 0;

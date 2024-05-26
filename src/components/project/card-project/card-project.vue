@@ -2,39 +2,15 @@
   <div class="card-project">
     <div class="name-wrapper">
       <div class="iconimg iconimg-subsidy"></div>
-      <div class="name">{{ renderData?.chi031 || '--' }}</div>
+      <div class="name">{{ renderData?.chi031 || '报备项目名称' }}</div>
     </div>
     <div class="cells">
       <div class="cell">
-        <div class="key">补贴对象：</div>
-        <div class="value">{{ renderData?.chm031 || '--' }}</div>
-      </div>
-      <div class="cell">
-        <div class="key">补贴标准：</div>
-        <div class="value">{{ renderData?.chm032 || '--' }}</div>
-      </div>
-      <div class="cell">
-        <div class="key">执行年限：</div>
+        <div class="key">产品说明：</div>
         <div class="value">
-          <span v-if="renderData?.chm033">{{ moment(renderData?.chm033).format('YYYY年MM月DD日') }}</span>
-          <span>至</span>
-          <span v-if="renderData?.chm034">{{ moment(renderData?.chm034).format('YYYY年MM月DD日') }}</span>
+          {{ renderData?.chm031 || '啊实打实大师撒大大阿达撒撒大声地阿萨大师的阿达阿达阿达阿达是' }}
         </div>
       </div>
-      <div class="cell">
-        <div class="key">更新时间：</div>
-        <div class="value">{{ renderData?.updateTime || '暂无' }}</div>
-      </div>
-    </div>
-    <div
-      class="button"
-      @click="
-        navigateTo('project-details', 'packageQuery', {
-          chm030: renderData?.chm030
-        })
-      "
-    >
-      查看详情
     </div>
   </div>
 </template>
@@ -43,8 +19,8 @@
   import type { PropType } from 'vue'
   import type { GetSubsidyProjectListRow } from '@/server/types'
 
-  import moment from 'moment'
-  import { navigateTo } from '@/utils/uni'
+  // import moment from 'moment'
+  // import { navigateTo } from '@/utils/uni'
 
   const props = defineProps({
     /**
