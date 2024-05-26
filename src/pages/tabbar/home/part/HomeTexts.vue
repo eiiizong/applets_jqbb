@@ -19,11 +19,12 @@
     position: relative;
     margin-top: $spacing;
     padding: 0 $spacing;
-
+    box-sizing: border-box;
     .texts {
       background-color: #fff;
       padding: $spacing;
       border-radius: 8rpx;
+      box-sizing: border-box;
     }
     .text {
       font-size: 28rpx;
@@ -32,6 +33,7 @@
     }
     .btn-wrapper {
       padding: $spacing 100rpx 0;
+      box-sizing: border-box;
     }
     .btn {
       background-color: $color-primary;

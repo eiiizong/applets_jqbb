@@ -14,5 +14,6 @@
   .home {
     width: 100%;
     padding: $spacing 0;
+    box-sizing: border-box;
   }
 </style>

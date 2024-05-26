@@ -46,6 +46,7 @@
       background-image: linear-gradient(to bottom, $color-primary, rgba($color-primary, 0.2));
       color: #fff;
       padding-top: $spacing;
+      box-sizing: border-box;
 
       .image {
         width: 120rpx;

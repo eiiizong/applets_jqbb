@@ -36,6 +36,7 @@
   .home-header {
     position: relative;
     padding: 0 $spacing;
+    box-sizing: border-box;
     .swiper {
       width: 100%;
       height: 306rpx;
