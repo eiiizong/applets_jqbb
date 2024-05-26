@@ -1,5 +1,11 @@
 <template>
   <div class="login-form">
+    <div class="button-wrapper">
+      <button class="button" :disabled="!isCanClickLogin" open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
+        微信一键登录
+      </button>
+    </div>
+
     <div class="agreement-wrapper">
       <label for="agree" class="label">
         <checkbox-group @change="onChangeCheckbox">
@@ -25,18 +31,12 @@
         </div>
       </label>
     </div>
-    <div class="button-wrapper">
-      <button class="button" :disabled="!isCanClickLogin" open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
-        微信一键登录
-      </button>
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
   import type { LoginPageForm } from '@/types'
   import { navigateTo } from '@/utils/uni'
-  import { checkIDCard } from '@/utils/check'
 
   const emit = defineEmits(['click'])
 
@@ -56,17 +56,11 @@
    */
   const isCanClickLogin = computed(() => {
     let res = true
-    const { name, idcard, agree } = form.value
-    if (!name || !idcard || !agree) {
+    const { agree } = form.value
+    if (!agree) {
       res = false
     }
 
-    if (idcard) {
-      const result = checkIDCard(idcard)
-      if (!result.isOk) {
-        res = false
-      }
-    }
     return res
   })
 
@@ -128,6 +122,7 @@
   .login-form {
     padding: $spacing;
     box-sizing: border-box;
+    padding-top: 150rpx;
     .form-wrapper {
       width: 100%;
       margin-top: $spacing;

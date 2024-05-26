@@ -3,26 +3,6 @@
     <div class="avatar">
       <image :src="avatarIcon" class="avatar" />
     </div>
-
-    <!-- #ifdef MP-WEIXIN -->
-    <template>
-      <div class="title">
-        <span>{{ $t('login.header.name') }}</span>
-      </div>
-      <div class="tip">
-        <span class="zh">{{ $t('login.header.tip') }}</span>
-      </div>
-    </template>
-    <!-- #endif -->
-
-    <!-- #ifndef MP-WEIXIN -->
-    <template>
-      <div class="title">
-        <span>{{ $t('login.headerApp.title') }}</span>
-      </div>
-    </template>
-
-    <!-- #endif -->
   </div>
 </template>
 <script setup lang="ts">
@@ -33,7 +13,7 @@
   .login-header {
     width: 100%;
     text-align: center;
-    padding-top: 26rpx;
+    padding-top: 150rpx;
     color: $color-text;
 
     .avatar {

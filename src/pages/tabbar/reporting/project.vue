@@ -1,11 +1,11 @@
 <template>
-  <div class="page reporting">
-    <reportingHeader
+  <div class="page project">
+    <ProjectHeader
       :scroll-view-id="scrollViewId"
       :render-list="chi031List"
       @query="onClickQuery"
       @click="onClickScrollItem"
-    ></reportingHeader>
+    ></ProjectHeader>
     <scroll-view
       class="scroll-view"
       scroll-y
@@ -18,24 +18,24 @@
           <div class="item-name">{{ item.chi037Desc }}</div>
           <div class="cards">
             <div class="card" v-for="(card, index) in item.list" :key="index">
-              <ComponentreportingCardreporting :render-data="card"></ComponentreportingCardreporting>
+              <ComponentProjectCardProject :render-data="card"></ComponentProjectCardProject>
             </div>
           </div>
         </div>
       </template>
       <template v-else>
-        <ComponentreportingEmpty v-if="isRequestOver"></ComponentreportingEmpty>
+        <ComponentProjectEmpty v-if="isRequestOver"></ComponentProjectEmpty>
       </template>
     </scroll-view>
   </div>
 </template>
 <script setup lang="ts">
-  import ComponentreportingCardreporting from '@/components/reporting/card-reporting/card-reporting.vue'
-  import ComponentreportingEmpty from '@/components/reporting/empty/empty.vue'
-  import reportingHeader from './part/reportingHeader.vue'
+  import ComponentProjectCardProject from '@/components/project/card-project/card-project.vue'
+  import ComponentProjectEmpty from '@/components/project/empty/empty.vue'
+  import ProjectHeader from './part/ProjectHeader.vue'
 
-  import type { GetSubsidyreportingListRow } from '@/server/types'
-  import { requestAppletGetSubsidyreportingList } from '@/server/api'
+  import type { GetSubsidyProjectListRow } from '@/server/types'
+  import { requestAppletGetSubsidyProjectList } from '@/server/api'
 
   const instance = getCurrentInstance()
   /**
@@ -67,7 +67,7 @@
     {
       chi037: string
       chi037Desc: string
-      list: GetSubsidyreportingListRow[]
+      list: GetSubsidyProjectListRow[]
     }[]
   >([])
 
@@ -113,7 +113,7 @@
   const queryData = () => {
     isRequestOver.value = false
     chi031List.value = []
-    requestAppletGetSubsidyreportingList(chi031.value)
+    requestAppletGetSubsidyProjectList(chi031.value)
       .then((res) => {
         const newList = []
         let index = 1
@@ -194,7 +194,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .reporting {
+  .project {
     width: 100%;
     height: 100vh;
     display: flex;
