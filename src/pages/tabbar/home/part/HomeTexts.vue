@@ -6,13 +6,15 @@
       </div>
 
       <div class="btn-wrapper">
-        <button class="btn">立即报备</button>
+        <button class="btn" @click="navigateTo('add', 'packageCommon')">立即报备</button>
       </div>
     </view>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { navigateTo } from '@/utils/uni'
+</script>
 
 <style lang="scss" scoped>
   .home-con {

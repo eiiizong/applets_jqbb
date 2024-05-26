@@ -1,6 +1,6 @@
 <template>
   <div class="panel">
-    <div class="title-wrapper">
+    <div class="title-wrapper" v-if="title">
       <div class="line"></div>
       <div class="title">{{ title }}</div>
       <div class="more" v-if="moreText" @click="emit('clickMore')">{{ moreText }}</div>
@@ -19,7 +19,7 @@
      */
     title: {
       type: String,
-      required: true
+      required: false
     },
     /**
      * 按钮名称

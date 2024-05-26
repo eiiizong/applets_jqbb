@@ -2,8 +2,8 @@
   <div class="page-scroll my">
     <div class="my-header">
       <div class="avatar-wrapper uno-center uno-flex-col">
-        <image class="image" :src="imageAvatar"></image>
-        <div class="name">小李</div>
+        <image class="image" :src="imageAvatar" @click="onClickLogin"></image>
+        <div class="name" @click="onClickLogin">{{ token ? name : '立即登录' }}</div>
       </div>
     </div>
     <div class="nav-wrapper">
@@ -33,7 +33,20 @@
 
 <script setup lang="ts">
   import imageAvatar from './images/avatar.png'
-  import { switchTab } from '@/utils/uni'
+  import { switchTab, navigateTo } from '@/utils/uni'
+
+  import { useStoreUserInfo } from '@/stores/modules'
+
+  const storeUserInfo = useStoreUserInfo()
+
+  const { name, token } = toRefs(storeUserInfo)
+
+  const onClickLogin = () => {
+    if (token?.value) {
+      return
+    }
+    navigateTo('login', 'packageCommon')
+  }
 </script>
 
 <style lang="scss" scoped>

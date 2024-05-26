@@ -35,6 +35,12 @@
       "style": {
         "navigationBarTitleText": "用户协议"
       }
+    },
+    {
+      "path": "pages/packageCommon/add/add",
+      "style": {
+        "navigationBarTitleText": "l立即报备"
+      }
     }
   ],
   "globalStyle": {
